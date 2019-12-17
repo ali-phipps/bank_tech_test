@@ -15,4 +15,8 @@ class Account
   def withdrawl(value)
     @transaction_history.add(amount: value, type: 'debit')
   end
+
+  def generateStatement
+    Statement.print(@transaction_history)
+  end
 end

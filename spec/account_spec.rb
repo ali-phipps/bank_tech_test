@@ -2,8 +2,7 @@ require 'account'
 require 'timecop'
 
 describe Account do
-  subject(:account_with_balance) { Account.new(name: 'Alistair Phipps',
-                                               balance: 1000) }
+  subject(:account) { Account.new(name: 'Alistair Phipps'}
 
   before(:each) do
     Timecop.freeze(Time.local(2019, 12, 17))
@@ -17,13 +16,13 @@ describe Account do
     end
 
     it 'new account is created for a customer and has user specified balance' do
-      expect(account_with_balance.balance).to eq 1000
+      expect(account.balance).to eq 1000
     end
   end
 
   describe '#deposit' do
     it 'make a single deposit' do
-      transaction = account_with_balance.deposit(1000)
+      transaction = account.deposit(1000)
       expect(transaction.type).to eq "credit"
       expect(transaction.amount).to eq 1000
       expect(transaction.date).to eq "17/12/2019"
@@ -32,7 +31,7 @@ describe Account do
 
   describe '#deposit' do
     it 'make a single deposit' do
-      transaction = account_with_balance.deposit(1000)
+      transaction = account.deposit(1000)
       expect(transaction.type).to eq "credit"
       expect(transaction.amount).to eq 1000
       expect(transaction.date).to eq "17/12/2019"
@@ -41,10 +40,22 @@ describe Account do
 
   describe '#withdrawal' do
     it 'make a single deposit' do
-      transaction = account_with_balance.withdrawl(1000)
+      transaction = account.withdrawl(1000)
       expect(transaction.type).to eq "debit"
       expect(transaction.amount).to eq 1000
       expect(transaction.date).to eq "17/12/2019"
+    end
+  end
+
+  describe '#GenerateStatement' do
+    it 'prints a statement of transactions' do
+      print_result =
+      'date || credit || debit || balance
+      17/12/2019 || 1000 || || 1000
+      17/12/2019 || || 1000 || 0'
+      account.deposit(1000)
+      account.withdrawl(1000)
+      expect(account.generateStatement).to eq print_result
     end
   end
 end
