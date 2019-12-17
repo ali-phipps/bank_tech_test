@@ -2,9 +2,8 @@ require 'account'
 require 'timecop'
 
 describe Account do
-  subject(:account_with_balance) {
-  Account.new(name: 'Alistair Phipps',
-              balance: 1000) }
+  subject(:account_with_balance) { Account.new(name: 'Alistair Phipps',
+                                               balance: 1000) }
 
   before(:each) do
     Timecop.freeze(Time.local(2019, 12, 17))
