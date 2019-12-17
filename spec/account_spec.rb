@@ -41,8 +41,8 @@ describe Account do
 
   describe '#withdrawal' do
     it 'make a single deposit' do
-      transaction = account_with_balance.deposit(1000)
-      expect(transaction.type).to eq "credit"
+      transaction = account_with_balance.withdrawl(1000)
+      expect(transaction.type).to eq "debit"
       expect(transaction.amount).to eq 1000
       expect(transaction.date).to eq "17/12/2019"
     end

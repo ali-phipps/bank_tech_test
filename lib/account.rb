@@ -9,8 +9,10 @@ class Account
   end
 
   def deposit(value)
-
     @transaction_history.add(amount: value, type: 'credit')
-    
+  end
+
+  def withdrawl(value)
+    @transaction_history.add(amount: value, type: 'debit')
   end
 end
