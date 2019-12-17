@@ -1,3 +1,5 @@
+require 'transaction'
+
 class Account
   attr_reader :balance
 
@@ -5,5 +7,11 @@ class Account
     @balance = balance
     @customer_name = name
     @transaction_history = []
+  end
+
+  def deposit(value)
+    transaction = Transaction.new(amount: value, type: 'credit')
+    @transaction_history << transaction
+    transaction
   end
 end

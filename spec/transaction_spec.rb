@@ -2,9 +2,8 @@ require 'transaction'
 require 'timecop'
 
 describe Transaction do
-
   before(:each) do
-    Timecop.freeze(Time.local(2019,12,17))
+    Timecop.freeze(Time.local(2019, 12, 17))
   end
   describe 'credit' do
     it "deposit with today's date" do
