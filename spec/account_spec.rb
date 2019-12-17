@@ -22,7 +22,7 @@ describe Account do
       transaction = @account.deposit(1000)
       expect(transaction.type).to eq "credit"
       expect(transaction.amount).to eq 1000
-      expect(transaction.date).to eq "14-12-2019"
+      expect(transaction.date).to eq "17/12/2019"
     end
   end
 end
