@@ -1,4 +1,5 @@
 require 'account'
+require 'timecop'
 
 describe Account do
   subject(:account_with_balance) {
@@ -22,6 +23,24 @@ describe Account do
   end
 
   describe '#deposit' do
+    it 'make a single deposit' do
+      transaction = account_with_balance.deposit(1000)
+      expect(transaction.type).to eq "credit"
+      expect(transaction.amount).to eq 1000
+      expect(transaction.date).to eq "17/12/2019"
+    end
+  end
+
+  describe '#deposit' do
+    it 'make a single deposit' do
+      transaction = account_with_balance.deposit(1000)
+      expect(transaction.type).to eq "credit"
+      expect(transaction.amount).to eq 1000
+      expect(transaction.date).to eq "17/12/2019"
+    end
+  end
+
+  describe '#withdrawal' do
     it 'make a single deposit' do
       transaction = account_with_balance.deposit(1000)
       expect(transaction.type).to eq "credit"
