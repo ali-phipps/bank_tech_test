@@ -2,12 +2,12 @@ require 'account'
 require 'timecop'
 
 describe Account do
-  subject(:account) { Account.new(name: 'Alistair Phipps')}
+  subject(:account) { Account.new}
 
   before(:each) do
     Timecop.freeze(Time.local(2019, 12, 17))
   end
-  
+
   describe '#deposit' do
     it 'make a single deposit' do
       transaction = account.deposit(1000)
@@ -35,15 +35,13 @@ describe Account do
     end
   end
 
-  describe '#GenerateStatement' do
+  describe '#Generate_statement' do
     it 'prints a statement of transactions' do
       print_result =
-      'date || credit || debit || balance
-      17/12/2019 || 1000 || || 1000
-      17/12/2019 || || 1000 || 0'
+      "date || credit || debit || balance\n17/12/2019 || 1000 || || 1000\n17/12/2019 || || 1000 || 0\n"
       account.deposit(1000)
       account.withdrawl(1000)
-      expect(account.generateStatement).to eq print_result
+      expect(account.generate_statement).to eq print_result
     end
   end
 end
