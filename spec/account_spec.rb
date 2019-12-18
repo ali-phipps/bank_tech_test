@@ -24,13 +24,13 @@ describe Account do
   end
 
   describe '#withdrawal' do
-    it 'make a single withdrawl' do
+    it 'make a single withdraw' do
       transaction_debit = double('transaction',
                                  type: 'debit',
                                  amount: 1000,
                                  date: '17/12/2019')
       allow(transaction_history).to receive(:add).and_return(transaction_debit)
-      transaction = account.withdrawl(1000)
+      transaction = account.withdraw(1000)
       expect(transaction.type).to eq 'debit'
       expect(transaction.amount).to eq 1000
       expect(transaction.date).to eq '17/12/2019'

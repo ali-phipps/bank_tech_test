@@ -1,3 +1,5 @@
+require_relative './transaction.rb'
+
 class TransactionHistory
   attr_reader :history
   def initialize(transaction_class = Transaction)

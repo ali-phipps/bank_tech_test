@@ -1,4 +1,5 @@
-require 'statement'
+require_relative './statement.rb'
+require_relative './transaction_history.rb'
 
 class Account
   attr_reader :balance
@@ -11,7 +12,7 @@ class Account
     @transaction_history.add(amount: value, type: 'credit')
   end
 
-  def withdrawl(value)
+  def withdraw(value)
     @transaction_history.add(amount: value, type: 'debit')
   end
 
