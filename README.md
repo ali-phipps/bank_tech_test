@@ -51,3 +51,10 @@ Makerss-MacBook-Pro:bank_tech_test student$ irb
 2.6.3 :006 > account.generate_statement
  => "date || credit || debit || balance\n18/12/2019 || 1000 || || 1000\n18/12/2019 || 2000 || || 3000\n18/12/2019 || || 500 || 2500\n"
 ```
+## Design thinking and Process
+
+I've tried to the best of my ability to achieve good OO principles, eg SRP and separation of concerns. Examples of that being creation of separate `statement` and `account` classes that deal with presentation of transaction history versus business logic of creating deposits and withdrawals. 
+
+The class strucuture is modular and should hopefully be flexible, eg `Transaction` and `TransactionHistory` separated to allow easier extension in the future. 
+
+I've used dependency injection to help isolate my classes to enable mocking in the unit tests.
