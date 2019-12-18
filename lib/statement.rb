@@ -8,11 +8,11 @@ class Statement
       if transaction.type == "credit"
         balance += transaction.amount
         lines += transaction.date + " || " + transaction.amount.to_s +
-                  ' || || ' + balance.to_s + "\n"
+                 ' || || ' + balance.to_s + "\n"
       else
         balance -= transaction.amount
         lines += transaction.date + " || " + '|| ' + transaction.amount.to_s +
-         ' || ' + balance.to_s  + "\n"
+                 ' || ' + balance.to_s + "\n"
       end
     end
     lines
